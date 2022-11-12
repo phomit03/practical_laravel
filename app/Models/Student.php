@@ -21,4 +21,11 @@ class Student extends Model
         'updated_at'
     ];
 
+    //search sẽ xử lí việc lọc, nếu phải lọc nhiều cái
+    public function scopeSearchName($query, $search=''){  //name giá trị mặc định ban đầu
+        if ($search != null && $search != ''){
+            return $query-> where("name","like",'%'.$search."%");
+        }
+        return $query;
+    }
 }

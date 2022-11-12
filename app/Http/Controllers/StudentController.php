@@ -10,13 +10,13 @@ class StudentController extends Controller
     public function studentList(Request $request){
         $paramSearch = $request->get("search");
         $student = Student::SearchName($paramSearch)->simplePaginate(10);
-        return view("/student.listStudents",[
+        return view("student.listStudents",[
             "student"=>$student
         ]);
     }
 
     public function studentForm(){
-        return view("/student.createStudent");
+        return view("student.createStudent");
     }
 
     public function studentCreate(Request $request){
